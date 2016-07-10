@@ -25,7 +25,7 @@ To implement your own EA you need to:
 2. extend abstract class BotMaster (see class `GABot.GA_Master`)
 3. adjust `Runner.main` method to use your `BotMaster`
 
-I used jdk1.8.0_31 and robocode1.9.2.5 
+During development I used Win7, jdk1.8.0_31, robocode1.9.2.5 
 
 I used some source code and inspiration from following projects: 
 https://github.com/tbh1/robocode-gp
