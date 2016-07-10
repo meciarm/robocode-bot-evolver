@@ -131,12 +131,11 @@ public class Runner {
 	}
 	
 	// 
-	public void Run_GA() throws IOException {
+	public void Run(BotMaster botMaster) throws IOException {
 		int populationIdBestLastGen = -1;
 		int populationIdBest = -1;
 		int populationIdWorst = -1;
 		double populationAverageFitness = 0;
-		BotMaster botMaster = new GA_Master(_populationSize);
 		String[] opponentNames = GetOpponentNames();
 		long startTime;
 		PrepareOutput(_evolutionName);
@@ -199,11 +198,13 @@ public class Runner {
 	public static void main(String args[]) {
 		int populationSize = 40;
 		int generations = 40;
+		boolean watchBattles = false;
 		
 		try {
 			Runner rga = new Runner("GAFire", generations, populationSize);
-			rga._watchBattle = false; // watch battles?
-			rga.Run_GA();
+			rga._watchBattle = watchBattles;
+			BotMaster botMaster = new GA_Master(populationSize);
+			rga.Run(botMaster);
 		} catch (Exception e) {
 			System.err.println("Error: " + e.getMessage());
 		}
